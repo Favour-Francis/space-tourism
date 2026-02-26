@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+body {
+  @apply min-h-screen w-full;
+}
+#root {
+  @apply min-h-screen w-full;
+}
+
+
+
+.destination-container {
+  @apply lg:bg-[url('./assets/destination/background-destination-desktop.jpg')] 
+     sm:bg-[url('./assets/destination/background-destination-tablet.jpg')] 
+     bg-[url('./assets/destination/background-destination-mobile.jpg')] 
+     bg-cover bg-center min-h-screen w-full  text-gray-300 sm:pl-10 lg:pt-10;
+}
+
+.crew-container {
+  @apply lg:bg-[url('./assets/crew/background-crew-desktop.jpg')] 
+     sm:bg-[url('./assets/crew/background-crew-tablet.jpg')] 
+     bg-[url('./assets/crew/background-crew-mobile.jpg')] 
+     bg-cover bg-center min-h-screen w-full text-gray-300 sm:pl-10 lg:pt-10;
+}
+
+.technology-container {
+  @apply lg:bg-[url('./assets/technology/background-technology-desktop.jpg')] 
+     sm:bg-[url('./assets/technology/background-technology-tablet.jpg')] 
+     bg-[url('./assets/technology/background-technology-mobile.jpg')] 
+     bg-cover bg-center min-h-screen w-full  text-gray-300 sm:pl-10 lg:pt-10;
+}
