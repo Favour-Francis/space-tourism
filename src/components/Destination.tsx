@@ -1,14 +1,17 @@
 import "./App.css";
 import { useState } from "react";
 import Tabs from "../lib/tabs";
-
+import TopBar from "./TopBar";
 export default function Destination() {
   const [selectedTab, setSelectedTab] = useState(Tabs[1]);
 
   return (
-    <div className="destination-container ">
+    <div className="destination-container overflow-hidden">
+      <header className="w-full h-fit flex justify-between items-center sm:p-0 p-5">
+        <TopBar />
+      </header>
       <main className="flex-1">
-        <h1 className="lg:pr-150 mt-15 text-center mb-8 lg:tracking-wide text-3xl ">
+        <h1 className="lg:pr-150 mt-15 text-center mb-8 lg:tracking-wide sm:text-3xl text-2xl ">
           <span className=" text-gray-600 font-bold"> 01 </span> PICK YOUR
           DESTINATION
         </h1>
@@ -50,19 +53,19 @@ export default function Destination() {
               </a>
             </nav>
 
-            <h1 className="lg:text-8xl text-7xl my-5">{selectedTab.title}</h1>
-            <p className="text-[16px] text-gray-400 lg:w-109.5 w-99 font-medium border-b border-gray-700 pb-8 lg:text-left text-center">
+            <h1 className="sm:text-8xl text-7xl my-5">{selectedTab.title}</h1>
+            <p className="sm:text-[16px] text-[14px] text-gray-400 sm:w-109.5 w-90 font-medium border-b border-gray-700 pb-8 lg:text-left text-center">
               {selectedTab.description}
             </p>
 
-            <div className="w-full flex justify-between [&_h1]:text-xs [&_h1]:font-light [&_p]:text-2xl font-semibold my-2">
+            <div className="sm:w-full w-85 flex justify-between [&_p]:text-2xl font-semibold my-2">
               <div>
-                <h1>AVG. DISTANCE</h1>
+                <h1 className="text-xs font-light">AVG. DISTANCE</h1>
                 <p>{selectedTab.distance}</p>
               </div>
 
               <div>
-                <h1>EST. TRAVEL TIME</h1>
+                <h1 className="text-xs font-light">EST. TRAVEL TIME</h1>
                 <p>{selectedTab.time}</p>
               </div>
             </div>

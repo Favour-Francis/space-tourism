@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
-import TopBar from "./TopBar";
+import Links from "./ui/Links";
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +9,7 @@ const SideBar = () => {
     <div>
       <motion.div
         initial={{ width: 60 }}
-        animate={{ width: isOpen ? 150 : 60 }}
+        animate={{ width: isOpen ? 100 : 60 }}
         transition={{ duration: 0.4 }}
       >
         <button
@@ -24,7 +24,7 @@ const SideBar = () => {
           className={`flex flex-col gap-2 border-gray-700
             ${isOpen ? "" : "hidden"}`}
         >
-          <TopBar />
+          <Links />
         </nav>
       </motion.div>
     </div>

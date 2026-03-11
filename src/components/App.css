@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 body {
-  @apply min-h-screen w-full;
-}
-#root {
-  @apply min-h-screen w-full;
+  @apply h-screen w-full;
 }
 
-
+.home-container {
+  @apply lg:bg-[url('./assets/home/background-home-desktop.jpg')] 
+     sm:bg-[url('./assets/home/background-home-tablet.jpg')] 
+     bg-[url('./assets/home/background-home-mobile.jpg')] 
+     bg-cover bg-center min-h-screen w-full  text-gray-300 sm:pl-10 lg:pt-10;
+}
 
 .destination-container {
   @apply lg:bg-[url('./assets/destination/background-destination-desktop.jpg')] 
@@ -27,5 +29,23 @@ body {
   @apply lg:bg-[url('./assets/technology/background-technology-desktop.jpg')] 
      sm:bg-[url('./assets/technology/background-technology-tablet.jpg')] 
      bg-[url('./assets/technology/background-technology-mobile.jpg')] 
-     bg-cover bg-center min-h-screen w-full  text-gray-300 sm:pl-10 lg:pt-10;
+     bg-cover bg-center min-h-screen w-full text-gray-300 sm:pl-10 lg:pt-10;
+}
+
+.topbar-nav {
+  background: rgba(70, 70, 70, 0.596);
+}
+
+.crew-pagination .swiper-pagination-bullet {
+  @apply bg-gray-600 size-8 rounded-full;
+}
+.crew-pagination .swiper-pagination-active {
+  @apply bg-gray-200 size-8 rounded-full;
+}
+
+.technology-pagination .swiper-pagination-bullet {
+  @apply bg-gray-300 size-18 rounded-full;
+}
+.technology-pagination .swiper-pagination-active {
+  @apply bg-gray-50 size-18 rounded-full;
 }

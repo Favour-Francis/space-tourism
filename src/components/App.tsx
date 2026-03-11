@@ -9,9 +9,6 @@ import Technology from "./Technology.tsx";
 function App() {
   return (
     <BrowserRouter>
-      <header className="w-full h-fit flex justify-between items-center sm:p-0 p-8">
-        <TopBar />
-      </header>
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />

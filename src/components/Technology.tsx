@@ -1,53 +1,70 @@
 import "./App.css";
+import TopBar from "./TopBar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Scrollbar, A11y, Autoplay } from "swiper/modules";
 
-import launchImgP from "../assets/technology/image-launch-vehicle-portrait.jpg";
-import launchImgL from "../assets/technology/image-launch-vehicle-landscape.jpg";
+import TechnologyDetails from "../lib/technology";
 
 export default function Technology() {
   return (
-    <div className="technology-container ">
+    <div className="technology-container overflow-hidden">
+      <header className="w-full h-fit flex justify-between items-center sm:p-0 p-5">
+        <TopBar />
+      </header>
       <main className="flex-1">
-        <h1 className="lg:pr-150 mt-15 text-center lg:mb-0 mb-10 tracking-widest text-3xl">
+        <h1 className="lg:pr-160 mt-15 text-center lg:mb-0 mb-10 tracking-widest sm:text-3xl text-2xl">
           <span className=" text-gray-600 font-bold"> 03 </span> SPACE LAUNCH
           101
         </h1>
-        <div className="w-full flex flex-col lg:px-0 px:5 lg:flex-row-reverse">
-          <img
-            className="h-100 lg:w-[50%] lg:block hidden"
-            src={launchImgP}
-            alt="launch"
-          />
-          <img className="lg:hidden cover" src={launchImgL} alt="launch" />
 
-          <div className="lg:w-full flex flex-col lg:justify-end justify-center items-center">
-            <div className="w-full lg:flex justify-end gap-8 *:my-10">
-              <div className="image lg:grid flex justify-center gap-5">
-                <div className="bg-gray-950 size-16 rounded-full text-3xl flex justify-center items-center">
-                  1
-                </div>
-                <div className="bg-gray-950 size-16 rounded-full text-3xl flex justify-center items-center">
-                  2
-                </div>
-                <div className="bg-gray-950 size-16 rounded-full text-3xl flex justify-center items-center">
-                  3
+        <Swiper
+          modules={[Pagination, Scrollbar, A11y, Autoplay]}
+          scrollbar={{ draggable: true }}
+          slidesPerView={1}
+          spaceBetween={20}
+          pagination={{ clickable: true, el: ".technology-pagination" }}
+          autoplay
+        >
+          {TechnologyDetails.map((technology, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex flex-col justify-center items-center lg:flex-row-reverse lg:justify-between ">
+                <img
+                  className="h-100 lg:w-[50%] lg:block hidden"
+                  src={technology.imagePortrait}
+                  alt={technology.label}
+                />
+                <img
+                  className="lg:hidden"
+                  src={technology.imageLandscape}
+                  alt={technology.label}
+                />
+
+                <div className="w-full flex lg:flex-row flex-col lg:justify-center items-center lg:gap-7">
+                  <div className="flex lg:grid justify-center gap-5 lg:my-0 my-12">
+                    <div className="sm:size-23 size-18 sm:text-4xl text-2xl text-black bg-gray-300 p-4 rounded-full flex justify-center items-center">
+                      1
+                    </div>
+                    <div className="sm:size-23 size-18 sm:text-4xl text-2xl bg-gray-900 p-4 rounded-full flex justify-center items-center">
+                      2
+                    </div>
+                    <div className="sm:size-23 size-18 sm:text-4xl text-2xl bg-gray-900 p-4 rounded-full flex justify-center items-center">
+                      3
+                    </div>
+                  </div>
+                  <div className="write-up lg:text-left grid justify-center items-center text-center">
+                    <h1 className="text-md font-light">THE TERMINOLOGY....</h1>
+                    <span className="sm:text-5xl text-4xl  font-light tracking-wider">
+                      {technology.label}
+                    </span>
+                    <p className="sm:w-120 w-90 sm:text-xl text-md my-3">
+                      {technology.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="write-up lg:w-[70%] lg:text-left text-center w-screen">
-                <h1 className="text-md font-light">THE TERMINOLOGY....</h1>
-                <span className="text-5xl  font-light tracking-wider">
-                  LAUNCH VEHICLE
-                </span>
-                <p className="sm:w-120 w-115 text-xl mt-5">
-                  A launch vehicle or carrier rocket is a rocket-propelled
-                  vehicle used to carry a payload from Earth's surface to space,
-                  usually to Earth orbit or beyond. Our WEB-X carrier rocket is
-                  the most powerful in operation. Standing 150 metres tall, it's
-                  quite an awe-inspiring sight on the the launch pad.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </main>
     </div>
   );

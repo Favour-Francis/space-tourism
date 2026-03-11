@@ -1,4 +1,4 @@
-const Links = [
+const Link = [
   { to: "/home", label: "HOME", number: "00" },
 
   { to: "/destination", label: "DESTINATION", number: "01" },
@@ -8,4 +8,4 @@ const Links = [
   { to: "/technology", label: "TECHNOLOGY", number: "03" },
 ];
 
-export default Links;
+export default Link;
